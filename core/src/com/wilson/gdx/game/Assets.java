@@ -20,10 +20,9 @@ public class Assets implements Disposable, AssetErrorListener
 
 	private AssetManager assetManager;
 
-	public AssetBunny bunny;
-	public AssetRock rock;
-	public AssetGoldCoin goldCoin;
-	public AssetFeather feather;
+	public AssetSword sword;
+	public AssetCloud cloud;
+
 	public AssetLevelDecoration levelDecoration;
 
 	// singleton: prevent instantiation from other classes
@@ -39,45 +38,23 @@ public class Assets implements Disposable, AssetErrorListener
 	 * @author Chris
 	 *
 	 */
-	public class AssetBunny
+	public class AssetSword
 	{
-		public final AtlasRegion head;
+		public final AtlasRegion sword;
 
-		public AssetBunny(TextureAtlas atlas)
+		public AssetSword(TextureAtlas atlas)
 		{
-			head = atlas.findRegion("bunny_head");
+			sword = atlas.findRegion("sword");
 		}
 	}
 
-	public class AssetRock
+	public class AssetCloud
 	{
-		public final AtlasRegion edge;
-		public final AtlasRegion middle;
+		public final AtlasRegion cloud;
 
-		public AssetRock(TextureAtlas atlas)
+		public AssetCloud(TextureAtlas atlas)
 		{
-			edge = atlas.findRegion("rock_edge");
-			middle = atlas.findRegion("rock_middle");
-		}
-	}
-
-	public class AssetGoldCoin
-	{
-		public final AtlasRegion goldCoin;
-
-		public AssetGoldCoin(TextureAtlas atlas)
-		{
-			goldCoin = atlas.findRegion("item_gold_coin");
-		}
-	}
-
-	public class AssetFeather
-	{
-		public final AtlasRegion feather;
-
-		public AssetFeather(TextureAtlas atlas)
-		{
-			feather = atlas.findRegion("item_feather");
+			cloud = atlas.findRegion("Cloud");
 		}
 	}
 
@@ -89,8 +66,8 @@ public class Assets implements Disposable, AssetErrorListener
 	 */
 	public class AssetLevelDecoration
 	{
-		public final AtlasRegion cloud01;
-		public final AtlasRegion cloud02;
+		public final AtlasRegion cloud;
+		public final AtlasRegion sword;
 		public final AtlasRegion cloud03;
 		public final AtlasRegion mountainLeft;
 		public final AtlasRegion mountainRight;
@@ -98,8 +75,8 @@ public class Assets implements Disposable, AssetErrorListener
 
 		public AssetLevelDecoration(TextureAtlas atlas)
 		{
-			cloud01 = atlas.findRegion("cloud01");
-			cloud02 = atlas.findRegion("cloud02");
+			cloud = atlas.findRegion("cloud");
+			sword = atlas.findRegion("sword");
 			cloud03 = atlas.findRegion("cloud03");
 			mountainLeft = atlas.findRegion("mountain_left");
 			mountainRight = atlas.findRegion("mountain_right");
@@ -132,10 +109,8 @@ public class Assets implements Disposable, AssetErrorListener
 		}
 
 		// create game resource objects
-		bunny = new AssetBunny(atlas);
-		rock = new AssetRock(atlas);
-		goldCoin = new AssetGoldCoin(atlas);
-		feather = new AssetFeather(atlas);
+		sword = new AssetSword(atlas);
+		cloud = new AssetCloud(atlas);
 		levelDecoration = new AssetLevelDecoration(atlas);
 	}
 
